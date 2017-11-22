@@ -16,6 +16,8 @@ func contrainPrefix(str1, str2 string) bool {
 	return false
 }
 
+
+// Get the common prefix between str1 and str2
 func getSubsetPrefix(str1, str2 string) (string, bool) {
 	findSubset := false
 	for i := 0; i < len(str1) && i < len(str2); i++ {
@@ -69,8 +71,11 @@ func (t *RadixTree) recursiveInsertTree(currentNode *Node, containKey string, ta
 
 	//Reach leaf the end point, refer this case https://goo.gl/mqXzB1
 	if currentNode.isLeafNode() {
+		// check prefix is same and selectors
 		if targetKey == currentNode.leaf.key {
-			//the same key, update value
+			//for CS --> no need to insert alread there???
+			//for PIT--> update pit entry by adding an inrecord
+			// No replacing values???
 			currentNode.leaf.value = targetValue
 			return
 
